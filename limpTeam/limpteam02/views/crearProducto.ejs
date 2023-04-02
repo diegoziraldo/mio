@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ingreso de Productos</title>
+</head>
+<body>
+    <h1><a href="/">Bienvenidos a Limpteam</a></h1>
+
+
+    <h3>Buscar Producto</h3>
+    <div id="buscarProducto">
+        <input type="text">
+        <button type="button" class="buscar-productos" >Buscar Producto</button>
+    </div>
+	<h2>Ingresar Producto</h2>
+	<form method="POST" action="" onsubmit="guardarProducto()">
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" required><br><br>
+		<label for="precio">Precio:</label>
+		<input type="number" name="precio" required><br><br>
+		<label for="imagen">Imagen:</label>
+		<input type="text" name="imagen" required><br><br>
+		<label for="descripcion">Descripción:</label>
+		<textarea name="descripcion" required></textarea><br><br>
+		<input type="submit" value="Guardar">
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .clientes {
+    background: linear-gradient(to bottom, #1d3e9a, #2546b8);
+  }
+  
+  .productos {
+    background: linear-gradient(to bottom, #2ca43c, #32b548);
+  }
+  
+  .proveedores {
+    background: linear-gradient(to bottom, #c8102e, #d2223e);
+  }
