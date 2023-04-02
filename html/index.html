@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#game-container {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#game-board {
+  width: 224px;
+  height: 288px;
+  margin: 0 auto;
+  position: relative;
+  background: #000;
+}
+
+.cell {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
+
+.pacman {
+  background: yellow;
+  border-radius: 50%;
+}
+
+.wall {
+  background: blue;
+}
+
+.dot {
+  background: white;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.ghost {
+  background: red;
+}
+
+
+</style>
+<body>
+    <body>
+        <div id="game-container">
+            <div id="game-board"></div>
+            <div id="score">Score: 0</div>
+          </div>
+          
+    </body>
+
+<script>
+// Define las piezas y sus posiciones iniciales
+const pieces = [
+  { shape: [[1, 1], [1, 1]], color: 'blue' },
+  { shape: [[0, 2, 0], [2, 2, 2]], color: 'orange' },
+  { shape: [[0, 3, 3], [3, 3, 0]], color: 'purple' },
+  { shape: [[4, 4, 0], [0, 4, 4]], color: 'green' },
+  { shape: [[5, 5, 5, 5]], color: 'red' },
+  { shape: [[0, 6, 0, 0], [0, 6, 6, 6]], color: 'yellow' },
+  { shape: [[0, 7, 0], [0, 7, 0], [0, 7, 7]], color: 'pink' }
+];
+
+// Crea el tablero de juego
+const board = [];
+for (let row = 0; row < 20; row++) {
+  board[row] = [];
+  for (let col = 0; col < 10; col++) {
+    board[row][col] = 0;
+  }
+}
+
+let score = 0;
+let currentPiece = getRandomPiece();
+let currentPosition = { row: 0, col: 3 };
+
+// Dibuja el tablero de juego y la pieza actual
+function draw() {
+  let html = '';
+  for (let row = 0; row < board.length; row++) {
+    for (let col = 0; col < board[row].length; col++) {
+      if (board[row][col] !== 0) {
+        html += `<div class="cell color-${board[row][col]}"></div>`;
+      } else if (row === currentPosition.row && col === currentPosition.col) {
+        html += `<div class="cell color-${currentPiece.color}"></div>`;
+      } else {
+        html += '<div class="cell"></div>';
+      }
+    }
+  }
+  document.getElementById('game-board').innerHTML = html;
+  document.getElementById('score').innerHTML = `Score: ${score}`;
+}
+
+// Obtiene una pieza aleatoria del conjunto de piezas
+function getRandomPiece() {
+  return pieces[Math.floor(Math.random() * pieces.length)];
+}
+
+// Mueve la pieza actual hacia abajo
+function moveDown() {
+  currentPosition.row++;
+  if (isCollision()) {
+    currentPosition.row--;
+    addToBoard();
+  }
+}
+</script>
+
+</html>
