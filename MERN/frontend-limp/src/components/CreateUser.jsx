@@ -49,7 +49,7 @@ export default class CreateUser extends Component {
           <div className='card card-body'>
             <h3>Crear Nuevo Cliente</h3>
             <form onSubmit={this.onSubmit}>
-              <div className='form-grup'>
+              <div style={{ marginBottom: '20px' }} className='form-grup'>
                 <input 
                 type='text' 
                 className='form-control' 

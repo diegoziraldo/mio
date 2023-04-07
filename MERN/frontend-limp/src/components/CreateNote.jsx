@@ -47,11 +47,11 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div className='col-md-6 offset-md-3'>
-        <div className='card card-body'>
-          <h2>Notas</h2>
+      <div className='col-md-10 offset-md-1'>
+        <div className='card card-body' >
+          <h2 >Notas</h2>
           {/* Select user */}
-          <div className='form-group'>
+          <div style={{ marginBottom: '20px' }} className='form-group' >
             <select className='form-control' name='userSelected' onChange={this.onInPutChange}>
               {
                   this.state.users.map(user => 
@@ -60,10 +60,12 @@ export default class CreateNote extends Component {
                   </option>)
               }
             </select>
-
+            
+              
           </div>
           <div className='form-group'>
-          <input  
+          <input 
+            style={{ marginBottom: '20px' }} 
             type="text" 
             name='title'
             className='form-control'
@@ -73,7 +75,7 @@ export default class CreateNote extends Component {
             required
 />
           </div>
-          <div className='form-group'>
+          <div style={{ marginBottom: '20px' }} className='form-group'>
             <textarea
               name='content'
               className='form-control'
@@ -85,7 +87,7 @@ export default class CreateNote extends Component {
             </textarea>
           </div>
 
-          <div className='form-group'>
+          <div style={{ marginBottom: '20px' }} className='form-group'>
               <DatePicker
                 className='form-control' 
                 selected={this.state.date}
@@ -94,8 +96,8 @@ export default class CreateNote extends Component {
                 />
           </div>
 
-          <form onSubmit={this.onSubmit}>
-            <button type='submit' className='btn btn-primary'>
+          <form onSubmit={this.onSubmit} >
+            <button type='submit' className='btn btn-primary' >
               Guardar
             </button>
           </form> 
