@@ -7,14 +7,14 @@ export default class Navigation extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to="/">Fichas Clientes</Link>
+          <Link className="navbar-brand" to="/">NotesApp</Link>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">Clientes</Link>
+                <Link className="nav-link" to="/">Notas</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/create">Crear Ficha</Link>
+                <Link className="nav-link" to="/create">Crear Nota</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/user">Crear Cliente</Link>
