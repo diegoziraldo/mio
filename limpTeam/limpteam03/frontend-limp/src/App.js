@@ -6,6 +6,7 @@ import CreateNote from './components/CreateNote';
 import CreateUser from './components/CreateUser';
 import Navigation from './components/Navigation';
 import NoteList from './components/NoteList';
+import CreateCliente from './components/CreateCliente';
 
 
 function App() {
@@ -17,8 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<NoteList/>}></Route>
         <Route path="/edit/:id" element={<CreateNote/>}></Route>
-        <Route path="/create" element={<CreateNote/>}></Route>
-        <Route path="/user" element={<CreateUser/>}></Route>
+        <Route path="/createCliente" element={<CreateCliente/>}></Route>
+        <Route path="/createNote" element={<CreateNote/>}></Route>
       </Routes>
     </div>
     </Router>

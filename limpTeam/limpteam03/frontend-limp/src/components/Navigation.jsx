@@ -17,7 +17,7 @@ export default class Navigation extends Component {
                 <Link className="nav-link" to="/create">Crear Nota</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/user">Crear Cliente</Link>
+                <Link className="nav-link" to="/createCliente">Crear Cliente</Link>
               </li>
             </ul>
           </div>
