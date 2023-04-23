@@ -8,10 +8,11 @@ clienteControllers.getClientes = async(req,res)=>{
 }
 
 clienteControllers.createCliente = async(req,res)=>{
-    const {clientename} = req.body;
-    const newCliente = new Cliente({clientename})
+    const {name, lastname, email, direccion, localidad, telephono} = req.body;
+    const newCliente = new Cliente({name, lastname, email, direccion, localidad, telephono})
     await newCliente.save();
     res.json('Cliente Create');
+    console.log(req.body);
 }
 
 clienteControllers.deleteCliente = async(req,res)=>{

@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-export default class FormularioCliente extends Component {
+export default class CreateCliente extends Component {
   
 state = {
     clientes: [],
     name:'',
     lastname:'',
     email:'',
-    address:''
+    direccion:'',
+    localidad:'',
+    telephono:''
 
   }
 
   async componentDidMount(){
     this.getClientes();
-    console.log(this.state.clientes);
   }
-
+  
   getClientes = async()=>{
     const res = await axios.get('http://localhost:3000/api/clientes');
     this.setState({clientes:res.data})
+    console.log(this.state.clientes);
     console.log(res);
   }
 
@@ -43,24 +45,46 @@ state = {
 
   onChangeClienteAddress = (e)=>{
     this.setState({
-      address: e.target.value
+      direccion: e.target.value
     })
   }
 
+  onChangeClienteLocalidad = (e)=>{
+    this.setState({
+      localidad: e.target.value
+    })
+  }
+
+  onChangeClienteTelephone = (e)=>{
+    this.setState({
+      telephono: e.target.value
+    })
+  }
+
+
+
+
   onSubmit = async(e)=>{
     e.preventDefault();
-    const res = await axios.post('http://localhost:3000/api/clientes',{
+    const newCliente = {
       name: this.state.name,
       lastname: this.state.lastname,
       email: this.state.email,
-      address: this.state.address
-    })
+      direccion: this.state.direccion,
+      localidad: this.state.localidad,
+      telephono: this.state.telephono
+    }
+    await axios.post('http://localhost:3000/api/clientes', newCliente)
+    window.location.href = '/';
 
-/*     this.setState({name: ''})
+    this.setState({name: ''})
     this.setState({lastname: ''})
     this.setState({email: ''})
-    this.setState({address: ''})
-    this.getClientes(); */
+    this.setState({direccion: ''})
+    this.setState({localidad: ''})
+    this.setState({telephono: ''})
+    this.getClientes();
+
   }
 
   deleteUser = async(id)=>{
@@ -89,8 +113,6 @@ state = {
             <label htmlFor="lastname">Apellido:</label>
             <input 
               type="text" 
-              id="lastname" 
-              name="lastname" 
               className="form-control"
               value={this.state.lastname}
               onChange={this.onChangeClienteLastName}/>
@@ -101,8 +123,6 @@ state = {
             <label htmlFor="email">Email:</label>
             <input  
               type="email" 
-              id="email" 
-              name="email" 
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeClienteEmail}/>
@@ -112,13 +132,29 @@ state = {
             <label htmlFor="address">Direccion:</label>
             <input 
               type="text" 
-              id="address" 
-              name="address" 
               className="form-control" 
-              value={this.state.address}
+              value={this.state.direccion}
               onChange={this.onChangeClienteAddress}
               />
-          </div>      
+          </div>     
+          <div className="form-group">
+            <label htmlFor="address">Localidad:</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              value={this.state.localidad}
+              onChange={this.onChangeClienteLocalidad}
+              />
+          </div> 
+          <div className="form-group">
+            <label htmlFor="address">Telefono:</label>
+            <input 
+              type="number" 
+              className="form-control" 
+              value={this.state.telephono}
+              onChange={this.onChangeClienteTelephone}
+              />
+          </div>  
           <button type="submit" className="btn btn-primary">
             Guardar
           </button>
