@@ -4,8 +4,7 @@ const clienteSchema = new Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
-        unquique: true
+        trim: true
     },
     lastname: {
         type: String,

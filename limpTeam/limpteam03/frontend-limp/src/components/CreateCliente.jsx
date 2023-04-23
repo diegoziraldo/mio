@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-export default class FormularioCliente extends React.Component {
+
+export default class FormularioCliente extends Component {
   
 state = {
     clientes: [],
@@ -22,7 +21,7 @@ state = {
   getClientes = async()=>{
     const res = await axios.get('http://localhost:3000/api/clientes');
     this.setState({clientes:res.data})
-    console.log(res.data);
+    console.log(res);
   }
 
   onChangeClienteName = (e)=>{
@@ -55,15 +54,13 @@ state = {
       lastname: this.state.lastname,
       email: this.state.email,
       address: this.state.address
-
     })
 
-
-    this.setState({name: ''})
+/*     this.setState({name: ''})
     this.setState({lastname: ''})
     this.setState({email: ''})
     this.setState({address: ''})
-    this.getClientes();
+    this.getClientes(); */
   }
 
   deleteUser = async(id)=>{
@@ -83,8 +80,6 @@ state = {
             <label htmlFor="name">Nombre:</label>
             <input 
               type="text" 
-              id="name" 
-              name="name" 
               className="form-control"
               value={this.state.name}
               onChange={this.onChangeClienteName}/>
@@ -123,9 +118,10 @@ state = {
               value={this.state.address}
               onChange={this.onChangeClienteAddress}
               />
-          </div>
-      
-          <button type="submit" className="btn btn-primary">Enviar</button>
+          </div>      
+          <button type="submit" className="btn btn-primary">
+            Guardar
+          </button>
         </form>
       </div>
     );
