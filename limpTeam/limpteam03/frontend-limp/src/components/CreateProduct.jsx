@@ -24,73 +24,88 @@ state = {
   getProductos = async()=>{
     const res = await axios.get('http://localhost:3000/api/productos');
     this.setState({productos:res.data})
-    console.log(this.state.productos);
+    console.log(res);
   }
 
-  onChangeClienteName = (e)=>{
+  onChangeProductName = (e)=>{
     this.setState({
        name: e.target.value
    })
  }
-  onChangeClienteLastName = (e)=>{
+  onChangeProductDescription = (e)=>{
     this.setState({
-     lastname: e.target.value
+     description: e.target.value
     })
   }
 
-  onChangeClienteEmail = (e)=>{
+  onChangeCategory = (e)=>{
     this.setState({
-      email: e.target.value
+      category: e.target.value
     })  
   }
 
-  onChangeClienteAddress = (e)=>{
+  onChangeMarca = (e)=>{
     this.setState({
-      direccion: e.target.value
+      marca: e.target.value
     })
   }
 
-  onChangeClienteLocalidad = (e)=>{
+  onChangePrice = (e)=>{
     this.setState({
-      localidad: e.target.value
+      price: e.target.value
     })
   }
 
-  onChangeClienteTelephone = (e)=>{
+  onChangeImg = (e)=>{
     this.setState({
-      telephono: e.target.value
+      img: e.target.value
     })
   }
 
+  onChangeStock = (e)=>{
+    this.setState({
+      stock: e.target.value
+    })
+  }
 
+  onChangeInfoProveedor= (e)=>{
+    this.setState({
+      infoProveedor: e.target.value
+    })
+  }
 
 
   onSubmit = async(e)=>{
     e.preventDefault();
-    const newCliente = {
+    const newProducto = {
       name: this.state.name,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      direccion: this.state.direccion,
-      localidad: this.state.localidad,
-      telephono: this.state.telephono
+      description: this.state.description,
+      category: this.state.category,
+      marca: this.state.marca,
+      price: this.state.price,
+      img: this.state.img,
+      stock: this.state.stock,
+      infoProveedor: this.state.infoProveedor
     }
-    await axios.post('http://localhost:3000/api/clientes', newCliente)
+
+    await axios.post('http://localhost:3000/api/producto', newProducto)
     window.location.href = '/';
 
     this.setState({name: ''})
-    this.setState({lastname: ''})
-    this.setState({email: ''})
-    this.setState({direccion: ''})
-    this.setState({localidad: ''})
-    this.setState({telephono: ''})
-    this.getClientes();
+    this.setState({description: ''})
+    this.setState({category: ''})
+    this.setState({marca: ''})
+    this.setState({price: ''})
+    this.setState({img: ''})
+    this.setState({stock: ''})
+    this.setState({infoProveedor: ''})
+    this.getProductos();
 
   }
 
-  deleteUser = async(id)=>{
-    await axios.delete(`http://localhost:3000/api/clientes/${id}`);
-    this.getClientes()
+  deleteProduct = async(id)=>{
+    await axios.delete(`http://localhost:3000/api/productos/${id}`);
+    this.getProductos()
     console.log(id);
   }
 
