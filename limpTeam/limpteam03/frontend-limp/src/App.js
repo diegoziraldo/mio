@@ -6,6 +6,7 @@ import CreateNote from './components/CreateNote';
 import Navigation from './components/Navigation';
 import NoteList from './components/NoteList';
 import CreateCliente from './components/CreateCliente';
+import CreateProduct from './components/CreateProduct';
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/edit/:id" element={<CreateNote/>}></Route>
         <Route path="/createCliente" element={<CreateCliente/>}></Route>
         <Route path="/createNote" element={<CreateNote/>}></Route>
+        {/* <Route path="/products" element={<Products/>}></Route> */}
+        <Route path="/createProduct" element={<CreateProduct/>}></Route>
       </Routes>
     </div>
     </Router>

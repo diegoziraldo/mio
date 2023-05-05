@@ -56,7 +56,7 @@ state = {
     })
   }
 
-  onChangeImg = (e)=>{
+  onChangeImagen = (e)=>{
     this.setState({
       img: e.target.value
     })
@@ -73,6 +73,7 @@ state = {
       infoProveedor: e.target.value
     })
   }
+
 
 
   onSubmit = async(e)=>{
@@ -115,7 +116,8 @@ state = {
     return (
       <div>
         <form className="bg-light p-4 rounded" onSubmit={this.onSubmit}>
-        <h1>Formulario Cliente</h1>
+        <h1>Formulario Productos</h1>
+
           <div className="form-group">
             <label htmlFor="name">Nombre:</label>
             <input 
@@ -136,41 +138,65 @@ state = {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Categoria:</label>
             <input  
               type="email" 
               className="form-control"
-              value={this.state.email}
-              onChange={this.onChangeClienteEmail}/>
+              value={this.state.categoria}
+              onChange={this.onChangeCategoria}/>
           </div>
 
           <div className="form-group">
-            <label htmlFor="address">Direccion:</label>
+            <label htmlFor="address">Marca:</label>
             <input 
               type="text" 
               className="form-control" 
-              value={this.state.direccion}
-              onChange={this.onChangeClienteAddress}
+              value={this.state.marca}
+              onChange={this.onChangeMarca}
               />
-          </div>     
+          </div>  
+
           <div className="form-group">
-            <label htmlFor="address">Localidad:</label>
+            <label htmlFor="address">Price:</label>
             <input 
               type="text" 
               className="form-control" 
-              value={this.state.localidad}
-              onChange={this.onChangeClienteLocalidad}
+              value={this.state.price}
+              onChange={this.onChangePrice}
               />
           </div> 
+
           <div className="form-group">
-            <label htmlFor="address">Telefono:</label>
+            <label htmlFor="address">Imagen:</label>
+            <input 
+              type="file" 
+              className="form-control" 
+              value={this.state.img}
+              onChange={this.onChangeImagen}
+              />
+
+          </div>  
+
+          <div className="form-group">
+            <label htmlFor="address">Stock:</label>
             <input 
               type="number" 
               className="form-control" 
-              value={this.state.telephono}
-              onChange={this.onChangeClienteTelephone}
+              value={this.state.stock}
+              onChange={this.onChangeStock}
               />
-          </div>  
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="address">InfoProveedor:</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              value={this.state.infoProveedor}
+              onChange={this.onChangeInfoProveedor}
+              />
+          </div>
+
           <button type="submit" className="btn btn-primary">
             Guardar
           </button>
