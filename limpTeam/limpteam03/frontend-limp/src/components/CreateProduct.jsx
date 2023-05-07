@@ -8,7 +8,7 @@ state = {
     productos: [],
     name:'',
     description:'',
-    categoria:'',
+    category:'',
     marca:'',
     price:'',
     img:'',
@@ -38,7 +38,7 @@ state = {
     })
   }
 
-  onChangeCategory = (e)=>{
+  onChangeProductCategory = (e)=>{
     this.setState({
       category: e.target.value
     })  
@@ -89,7 +89,7 @@ state = {
       infoProveedor: this.state.infoProveedor
     }
 
-    await axios.post('http://localhost:3000/api/producto', newProducto)
+    await axios.post('http://localhost:3000/api/productos', newProducto)
     window.location.href = '/';
 
     this.setState({name: ''})
@@ -124,7 +124,7 @@ state = {
               type="text" 
               className="form-control"
               value={this.state.name}
-              onChange={this.onChangeProductoName}/>
+              onChange={this.onChangeProductName}/>
           </div>
 
           <div className="form-group">
@@ -133,17 +133,17 @@ state = {
               type="text" 
               className="form-control"
               value={this.state.description}
-              onChange={this.onChangeDescrption}/>
+              onChange={this.onChangeProductDescription}/>
               
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Categoria:</label>
             <input  
-              type="email" 
+              type="text" 
               className="form-control"
               value={this.state.categoria}
-              onChange={this.onChangeCategoria}/>
+              onChange={this.onChangeProductCategory}/>
           </div>
 
           <div className="form-group">
@@ -159,7 +159,7 @@ state = {
           <div className="form-group">
             <label htmlFor="address">Price:</label>
             <input 
-              type="text" 
+              type="number" 
               className="form-control" 
               value={this.state.price}
               onChange={this.onChangePrice}
