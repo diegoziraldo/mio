@@ -1,13 +1,13 @@
 import React from 'react';
-import { useContext } from 'react';
-import { Context } from '../context/GlobalState';
+import { useGlobalState } from '../context/GlobalState';
 import '../index.css';
 
 
 
 function Balance() {
 
-    const data = useContext(Context)
+    const data = useGlobalState()
+
   return (
     <div className="componenteBordes">
         <h1>Componente Balance</h1>
