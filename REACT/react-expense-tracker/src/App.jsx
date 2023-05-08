@@ -10,7 +10,6 @@ function App() {
       <Header />
       <Balance/>
       <TransactionForm />
-      <h1>Hola</h1>
     </GlobalProvider>
   )
 }

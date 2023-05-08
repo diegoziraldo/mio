@@ -1,8 +1,9 @@
 import React from 'react'
+import '../index.css';
 
 function Header() {
   return (
-    <div>Header</div>
+    <div className='componenteBordes'>Componente Header</div>
   )
 }
 

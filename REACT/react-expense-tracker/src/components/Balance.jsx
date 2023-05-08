@@ -1,13 +1,16 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Context } from '../context/GlobalState';
+import '../index.css';
+
+
 
 function Balance() {
 
     const data = useContext(Context)
   return (
-    <div>
-        <h1>Balance</h1>
+    <div className="componenteBordes">
+        <h1>Componente Balance</h1>
         <div>
             Balance {JSON.stringify(data)}
         </div>
