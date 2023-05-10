@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import VideoItem from "./components/VideoItem";
+import VideoList from "./components/VideoList";
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => (
+    <div className="estilos">
+    <VideoList title='Curso React'>
+        <VideoItem
+            title='Component'
+            duration={2760}  
+            uploadDate={new Date(2022,2,25)}
+            description='Componentes en react'  
+        ></VideoItem>
+        <VideoItem 
+            title='Use State'
+            duration={3145}  
+            uploadDate={new Date(2022,5,25)}
+            description='Como utilizar estados en react'
+        ></VideoItem>
+    </VideoList>
+        <VideoList title='Curso Node'>
+        <VideoItem
+            title='Video1'
+            duration={2760}  
+            uploadDate={new Date(2022,2,25)}
+            description='Introduccion al backend'  
+        ></VideoItem>
+    </VideoList>    
+    <VideoList title='Curso de next'/>
 
-export default App
+    </div>
+);
+
+export default App;
