@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import {Link} from "react-router-dom"; /* Con este componente podremos hacer que la pagina no renderize cada ves que cambio de pagina */
 
 

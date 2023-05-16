@@ -1,6 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import { Component} from 'react';
 import axios from 'axios';
-import {format} from 'timeago.js'
+
 
 export default class Products extends Component {
 
