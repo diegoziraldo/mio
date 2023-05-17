@@ -1,9 +1,11 @@
 import { Component } from 'react';
 import axios from 'axios';
-
-
+/* import { useNavigate } from 'react-router'; */
+import {Link} from "react-router-dom"
 export default class CreateCliente extends Component {
   
+
+
 state = {
     clientes: [],
     name:'',
@@ -15,10 +17,22 @@ state = {
 
   }
 
+/*   let navigate = useNavigate() */
+
+  goTo = ()=>{
+   return <Link className="nav-link" to="/clientes"></Link>
+
+  }
+
   async componentDidMount(){
     this.getClientes();
   }
   
+
+/*   goTo() {
+    navigate('/clientes')
+  } */
+
   getClientes = async()=>{
     const res = await axios.get('http://localhost:3000/api/clientes');
     this.setState({clientes:res.data})
@@ -63,7 +77,6 @@ state = {
 
 
 
-
   onSubmit = async(e)=>{
     e.preventDefault();
     const newCliente = {
@@ -75,7 +88,7 @@ state = {
       telephono: this.state.telephono
     }
     await axios.post('http://localhost:3000/api/clientes', newCliente)
-    window.location.href = '/';
+    window.location.href = 'clientes';
 
     this.setState({name: ''})
     this.setState({lastname: ''})
@@ -161,6 +174,7 @@ state = {
         </form>
       </div>
     );
+
   }
 }
 

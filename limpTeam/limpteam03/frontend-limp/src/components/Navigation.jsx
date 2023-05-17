@@ -14,13 +14,13 @@ export default class Navigation extends Component {
                 <Link className="nav-link" to="/clientes">Clientes</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/createCliente">Crear Cliente</Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" to="/products">Productos</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/createProduct">Crear Productos</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Proveedores">Proveedores</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/createProveedores">Crear Proveedores</Link>
