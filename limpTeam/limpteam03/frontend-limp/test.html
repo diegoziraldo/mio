@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <td>
+          <a href="#" class="btn btn-primary" onClick={this.handleShowModal}>
+            Detalles
+          </a>
+        </td>
+
+        <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Detalles</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Aquí puedes agregar el contenido del pop-up.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <button class="btn btn-secondary" onClick={this.handleCloseModal}>
+              Cerrar
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+</body>
+</html>
