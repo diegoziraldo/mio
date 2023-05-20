@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/js/src/modal'
+import '../stylesComponents/styleInputCliente.css'
 
 export default class Clientes extends Component {
 
@@ -31,16 +32,19 @@ export default class Clientes extends Component {
 
 
   render() {
+
+
+
     return (
       <>
-        <div className='bg-light p-4 rounded '>
-        <div className="input-group rounded mb-3" >
-            <input  type="search" className="form-control rounded " placeholder="Buscar cliente" aria-label="Search" aria-describedby="search-addon" />
+        <div className='bg-light p-4 rounded'>
+        <div className="input-group rounded mb-3 inputCliente" >
+            <input type="search" className="form-control rounded " placeholder="Buscar cliente" aria-label="Search" aria-describedby="search-addon" />
             <button className="input-group-text" id="addon-wrapping">
             <b className="fas fa-search">Buscar</b>
             </button>
         </div>
-        <button className="btn btn-warning float-end">
+        <button className="btn btn-warning float-end mb-3">
             <Link className="nav-link" to="/createCliente">Agregar Cliente</Link>
         </button>
           <div className="table table-striped">
