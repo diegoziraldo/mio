@@ -22,10 +22,13 @@ export default class NoteList extends Component {
 
 
 
+
   deleteNote = (id)=>{
     axios.delete('http://localhost:3000/api/notes/' + id);
     this.getNotes()
   }
+
+
 
 
   render() {
