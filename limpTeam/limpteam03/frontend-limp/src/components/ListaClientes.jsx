@@ -50,9 +50,9 @@ export default class ListaClientes extends Component {
                 <td>{cliente.telephono}</td>
                 <td>{cliente.email}</td>
 
-                <BotonDetallesCliente />
-                <BotonEditarCliente />
-                <BotonEliminarCliente />
+                <td><BotonDetallesCliente data={cliente}/></td>
+                <td><BotonEditarCliente /></td>
+                <td><BotonEliminarCliente /></td>
               </tr>
             ))}
           </tbody>

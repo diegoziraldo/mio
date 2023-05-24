@@ -6,7 +6,7 @@ export default class BotonEliminarCliente extends Component {
   
   render() {
     return (
-      <td>
+      <>
         <a
           href="#"
           className="btn btn-danger"
@@ -27,7 +27,7 @@ export default class BotonEliminarCliente extends Component {
             </div>
           </div>
         </form>
-      </td>
+      </>
     );
   }
 }

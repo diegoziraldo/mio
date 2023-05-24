@@ -1,36 +1,74 @@
-import { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+/* import {useState} from "react"; */
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default class BotonDetallesCliente extends Component {
-  render() {
+const ModalDetallesCliente = (data) => {
+
+  
+
+  //console.log(data);
+
+
+    const objeto = data.data.name;
+
+
+  
+    console.log(objeto);
+
+
     return (
-      <td>
-        <a
-          href="#"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#Detalles"
-        >
-          Detalles
-        </a>
-        <form>
-          <div className="modal fade" id="Detalles">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-body">
-                  <h3>Detalles del Cliente</h3>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-              </div>
+<>
+      <button
+        className="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#Detalles"
+      >
+        Detalles
+      </button>
+      <p>{objeto}</p>
+      <div className="modal fade" id="Detalles">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body">
+              <h3>Detalles de {objeto}</h3>
             </div>
           </div>
-        </form>
-      </td>
+        </div>
+      </div>
+</>
     );
   }
-}
+
+
+
+  export default ModalDetallesCliente;
+
+
+
+
+
+/* 
+  return ( */
+/*     <td>
+      <button
+        className="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#Detalles"
+      >
+        Detalles
+      </button>
+      <p>{data.data.name}</p>
+      <div className="modal fade" id="Detalles">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body">
+              <h3>Detalles de {data.data.name}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </td>
+  );
+}; */
+
+

@@ -19,7 +19,7 @@ export default class BotonEditarCliente extends Component {
 
   render() {
     return (
-      <td>
+      <>
         <a
           href=""
           className="btn btn-success"
@@ -110,7 +110,7 @@ export default class BotonEditarCliente extends Component {
             </div>
           </div>
         </form>
-      </td>
+      </>
     );
   }
 }
