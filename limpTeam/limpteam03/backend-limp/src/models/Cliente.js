@@ -3,16 +3,9 @@ const { Schema, model } = require('mongoose')
 const clienteSchema = new Schema({
     name: {
         type: String,
-
     },
     lastname: {
         type: String,
-
-
-    },
-    email:{
-        type: String,
-
     },
     direccion:{
         type: String,
@@ -21,10 +14,14 @@ const clienteSchema = new Schema({
     localidad:{
         type: String,
     },
-
+    
     telephono:{
         type: Number,
-    }
+    },
+    email:{
+        type: String,
+    },
+    
 
 },{
     timestamps: true

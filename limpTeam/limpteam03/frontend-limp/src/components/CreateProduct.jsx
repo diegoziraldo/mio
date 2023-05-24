@@ -90,7 +90,7 @@ state = {
     }
 
     await axios.post('http://localhost:3000/api/productos', newProducto)
-    window.location.href = '/';
+    window.location.href = 'products';
 
     this.setState({name: ''})
     this.setState({description: ''})

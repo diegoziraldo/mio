@@ -1,6 +1,6 @@
 import { Component} from 'react';
 import axios from 'axios';
-
+import AgegarProducto from './AgregarProducto';
 
 export default class Products extends Component {
 
@@ -30,7 +30,11 @@ export default class Products extends Component {
 
   render() {
     return (
+<>
+
         <div>
+            <AgegarProducto />
+
           {this.state.products.map(product => (
             <div className="card" key={product.id}>
                 <img className="card-img-top" src={product.image_url} alt={product.name} />
@@ -42,11 +46,12 @@ export default class Products extends Component {
                 <p className="card-text"><strong>Price: </strong>{product.price}</p>
                 <p className="card-text"><strong>Stock: </strong>{product.stock}</p>
                 <p className="card-text"><strong>Proveedor: </strong>{product.infoProveedor}</p>
-                <a href="#" className="btn btn-primary">Enviar</a>
+                <a href="products" className="btn btn-primary">Enviar</a>
             </div>
         </div>
       ))}
         </div>
+        </>
       );
   }
 }
