@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 /* import { Link } from "react-router-dom"; */
-import "../stylesComponents/styleInputCliente.css";
+import '../stylesComponents/styleInputCliente.css';
 import AgegarCliente from "./AgregarCliente";
 import BuscarCliente from "./BuscarClientes";
 import ListaClientes from "./ListaClientes";

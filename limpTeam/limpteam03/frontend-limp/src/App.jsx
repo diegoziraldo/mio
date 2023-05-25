@@ -1,12 +1,12 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import Navigation from './components/Navigation';
-import Clientes from './components/Clientes';
-import CreateCliente from './components/CreateCliente';
-import Products from './components/Products';
-import CreateProduct from './components/CreateProduct';
-import Proveedores from './components/Proveedores';
+import Navigation from './components/Navegacion/Navigation';
+import Clientes from './components/Clientes/Clientes';
+import CreateCliente from './components/Clientes/CreateCliente';
+import Products from './components/Productos/Products';
+import CreateProduct from './components/Productos/CreateProduct';
+import Proveedores from './components/Proveedores/Proveedores';
 /* import Pruebas from './components/Pruebas'; */
 
 
@@ -23,7 +23,6 @@ function App() {
         <Route path="/products" element={<Products/>}></Route>
         <Route path="/createProduct" element={<CreateProduct/>}></Route>
         <Route path="/proveedores" element={<Proveedores/>}></Route>
-
       </Routes>
     </div>
     </Router>
