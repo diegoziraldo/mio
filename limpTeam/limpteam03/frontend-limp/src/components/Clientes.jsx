@@ -44,7 +44,7 @@ export default class Clientes extends Component {
     return (
       <>
         <div className="bg-light p-4 rounded">
-
+        <h2>Clientes</h2>
           <BuscarCliente/>
 
           <AgegarCliente />

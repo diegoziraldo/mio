@@ -2,9 +2,9 @@ import { Component } from "react";
 import axios from "axios";
 /* import { Link } from "react-router-dom"; */
 import "../stylesComponents/styleInputCliente.css";
-//import AgegarCliente from "./AgregarCliente";
+import AgegarProveedor from "./AgregarProveedor";
 import BuscarProveedor from "./BuscarProveedores";
-//import ListaClientes from "./ListaClientes"; 
+import ListaProveedores from "./ListaProveedores"; 
 
 export default class Proveedores extends Component {
   state = {
@@ -44,12 +44,12 @@ export default class Proveedores extends Component {
     return (
       <>
         <div className="bg-light p-4 rounded">
+            <h2>Proveedores</h2>
+            <BuscarProveedor/>
 
-{           <BuscarProveedor/>
+            <AgegarProveedor />
 
- /*         <AgegarProveedor />
-
-          <ListaProveedores /> */}
+            <ListaProveedores /> 
 
 
         </div>

@@ -6,7 +6,7 @@ import Clientes from './components/Clientes';
 import CreateCliente from './components/CreateCliente';
 import Products from './components/Products';
 import CreateProduct from './components/CreateProduct';
-import Proveedores from './components/Provedores';
+import Proveedores from './components/Proveedores';
 /* import Pruebas from './components/Pruebas'; */
 
 
@@ -23,7 +23,7 @@ function App() {
         <Route path="/products" element={<Products/>}></Route>
         <Route path="/createProduct" element={<CreateProduct/>}></Route>
         <Route path="/proveedores" element={<Proveedores/>}></Route>
-        <Route path="/createProduct" element={<CreateProduct/>}></Route>
+
       </Routes>
     </div>
     </Router>

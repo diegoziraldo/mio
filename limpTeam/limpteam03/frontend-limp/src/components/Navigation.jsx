@@ -19,9 +19,6 @@ export default class Navigation extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/Proveedores">Proveedores</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/createProveedores">Crear Proveedores</Link>
-              </li>
             </ul>
           </div>
         </div>
