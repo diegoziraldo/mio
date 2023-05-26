@@ -1,49 +1,46 @@
-/* import {useState} from "react"; */
+import { useState } from "react";
+import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ModalDetallesCliente = (data) => {
+const BotonDetallesCliente = ({ data }) => {
+  const [objeto, setObjeto] = useState(data);
 
-  
+  const handleClick = () => {
+    setObjeto(data);
+  };
 
-  //console.log(data);
+  console.log(data);
 
-
-    const objeto = data.data.name;
-
-
-  
-    console.log(objeto);
-
-
-    return (
-<>
+  return (
+    <>
       <button
         className="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target="#Detalles"
+        data-bs-target={`#Detalles-${data._id}`}
+        onClick={handleClick}
       >
         Detalles
       </button>
-      <p>{objeto}</p>
-      <div className="modal fade" id="Detalles">
+      <p>{objeto.name}</p>
+      <div className="modal fade" id={`Detalles-${data._id}`}>
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-              <h3>Detalles de {objeto}</h3>
+            <h3>Detalles de {objeto.name}</h3>
+
             </div>
           </div>
         </div>
       </div>
-</>
-    );
-  }
+    </>
+  );
+};
 
+BotonDetallesCliente.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
-
-  export default ModalDetallesCliente;
-
-
-
+export default BotonDetallesCliente;
 
 
 /* 
@@ -70,5 +67,3 @@ const ModalDetallesCliente = (data) => {
     </td>
   );
 }; */
-
-
