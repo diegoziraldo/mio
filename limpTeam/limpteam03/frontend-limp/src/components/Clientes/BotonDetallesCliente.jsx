@@ -21,13 +21,20 @@ const BotonDetallesCliente = ({ data }) => {
       >
         Detalles
       </button>
-      <p>{objeto.name}</p>
       <div className="modal fade" id={`Detalles-${data._id}`}>
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
             <h3>Detalles de {objeto.name}</h3>
-
+              <ul>
+                {Object.keys(objeto)
+                  //.filter((key) => key === "name")
+                  .map((key) => (
+                    <li key={key}>
+                      {key}: {objeto[key]}
+                    </li>
+                  ))}
+              </ul>
             </div>
           </div>
         </div>
