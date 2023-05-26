@@ -1,8 +1,7 @@
-import { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class AgegarProveedor extends Component {
-  render() {
+const AgegarProveedor = ()=>{
+
     return (
       <button className="btn btn-warning float-end mb-3">
         <Link className="nav-link" to="/createProveedor">
@@ -10,5 +9,8 @@ export default class AgegarProveedor extends Component {
         </Link>
       </button>
     );
-  }
+  
 }
+
+
+export default AgegarProveedor;
