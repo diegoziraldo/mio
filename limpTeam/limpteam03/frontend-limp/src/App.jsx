@@ -7,6 +7,7 @@ import CreateCliente from './components/Clientes/CreateCliente';
 import Products from './components/Productos/Products';
 import CreateProduct from './components/Productos/CreateProduct';
 import Proveedores from './components/Proveedores/Proveedores';
+import HistorialCliente from './components/Clientes/HistorialCliente';
 /* import Pruebas from './components/Pruebas'; */
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/products" element={<Products/>}></Route>
         <Route path="/createProduct" element={<CreateProduct/>}></Route>
         <Route path="/proveedores" element={<Proveedores/>}></Route>
+        <Route path="/history-cliente" element={<HistorialCliente/>}></Route>
       </Routes>
     </div>
     </Router>

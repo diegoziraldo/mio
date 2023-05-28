@@ -1,15 +1,12 @@
-import { useState } from "react";
+
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 const BotonDetallesCliente = ({ data }) => {
-  const [objeto, setObjeto] = useState(data);
-
   const handleClick = () => {
-    setObjeto(data);
+    // Realizar acciones adicionales si es necesario al hacer clic en el botón
   };
-
-  console.log(data);
 
   return (
     <>
@@ -25,19 +22,18 @@ const BotonDetallesCliente = ({ data }) => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-            <h3>Detalles de {objeto.name}</h3>
+              <h3>Detalles de {data.name}</h3>
               <ul>
-                {Object.keys(objeto)
-                  //.filter((key) => key === "name")
-                  .map((key) => (
-                    <li key={key}>
-                      {key}: {objeto[key]}
-                    </li>
-                  ))}
+                {Object.keys(data).map((key) => (
+                  <li key={key}>
+                    {key}: {data[key]}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
+
       </div>
     </>
   );
@@ -48,6 +44,8 @@ BotonDetallesCliente.propTypes = {
 };
 
 export default BotonDetallesCliente;
+
+
 
 
 /* 

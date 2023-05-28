@@ -2,6 +2,11 @@ import { Component } from 'react';
 import axios from 'axios';
 /* import { useNavigate } from 'react-router'; */
 import {Link} from "react-router-dom"
+
+
+
+
+
 export default class CreateCliente extends Component {
   
 
@@ -100,11 +105,6 @@ state = {
 
   }
 
-  deleteUser = async(id)=>{
-    await axios.delete(`http://localhost:3000/api/clientes/${id}`);
-    this.getClientes()
-    console.log(id);
-  }
 
 
   

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../stylesComponents/styleInputCliente.css";
 import BotonDetallesCliente from "./BotonDetallesCliente";
 import BotonEditarCliente from "./BotonEditarCliente";
@@ -22,6 +23,11 @@ const ListaClientes = () => {
 
   return (
     <>
+      <Link to={{ pathname: "/history-cliente", state:{ name:clientes }}}>
+        <button className="btn btn-primary" type="button">
+          HISTORIAL DE COMPRAS
+        </button>
+      </Link>
       <div className="table table-striped">
         <thead>
           <tr>
@@ -55,6 +61,7 @@ const ListaClientes = () => {
                 <BotonEliminarCliente />
               </td>
             </tr>
+            
           ))}
         </tbody>
       </div>

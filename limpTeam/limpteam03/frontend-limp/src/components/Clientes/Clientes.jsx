@@ -35,7 +35,7 @@ export default class Clientes extends Component {
     }
   }
 
-  deleteProduct = (id) => {
+  deleteCliente = (id) => {
     axios.delete("http://localhost:3000/api/clientes/" + id);
     this.getClientes();
   };
