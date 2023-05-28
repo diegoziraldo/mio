@@ -1,7 +1,7 @@
 
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Link } from "react-router-dom";
 
 const BotonDetallesCliente = ({ data }) => {
   const handleClick = () => {
@@ -29,11 +29,19 @@ const BotonDetallesCliente = ({ data }) => {
                     {key}: {data[key]}
                   </li>
                 ))}
+                <Link to="/history-cliente" state={{name: data.name}}>
+                  <button
+                    className="btn btn-primary"
+                    type="button"
+                    data-bs-dismiss="modal"
+                  >
+                    HISTORIAL DE COMPRAS
+                  </button>
+                </Link>
               </ul>
             </div>
           </div>
         </div>
-
       </div>
     </>
   );
