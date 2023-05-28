@@ -4,14 +4,16 @@ import PropTypes from "prop-types";
 
 const HistorialCliente = () => {
   const location = useLocation();
-  const { name } = location.state || {};
+  const { id, name} = location.state || {};
 
+  /* console.log(name) */
+  console.log(id)
   console.log(name)
-
 
   return (
     <div>
       <h1>Historial de {name}</h1>
+      <h1>Historial de {id}</h1>
     </div>
   );
 };

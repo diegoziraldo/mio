@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
@@ -29,7 +28,13 @@ const BotonDetallesCliente = ({ data }) => {
                     {key}: {data[key]}
                   </li>
                 ))}
-                <Link to="/history-cliente" state={{name: data.name}}>
+                <Link
+                  to="/history-cliente"
+                  state={{
+                    name: data.name,
+                    id: data._id,
+                  }}
+                >
                   <button
                     className="btn btn-primary"
                     type="button"
@@ -52,9 +57,6 @@ BotonDetallesCliente.propTypes = {
 };
 
 export default BotonDetallesCliente;
-
-
-
 
 /* 
   return ( */
