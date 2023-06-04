@@ -3,9 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 
 const BotonDetallesCliente = ({ data }) => {
-  const handleClick = () => {
-    // Realizar acciones adicionales si es necesario al hacer clic en el botón
-  };
 
   return (
     <>
@@ -13,7 +10,6 @@ const BotonDetallesCliente = ({ data }) => {
         className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target={`#Detalles-${data._id}`}
-        onClick={handleClick}
       >
         Detalles
       </button>
@@ -40,7 +36,7 @@ const BotonDetallesCliente = ({ data }) => {
                     type="button"
                     data-bs-dismiss="modal"
                   >
-                    HISTORIAL DE COMPRAS
+                    VER HISTORIAL DE COMPRAS
                   </button>
                 </Link>
               </ul>

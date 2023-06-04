@@ -11,9 +11,9 @@ const HistorialCliente = () => {
   console.log(name)
 
   return (
-    <div>
+    <div className="bg-light p-4 rounded">
       <h1>Historial de {name}</h1>
-      <h1>Historial de {id}</h1>
+      
     </div>
   );
 };

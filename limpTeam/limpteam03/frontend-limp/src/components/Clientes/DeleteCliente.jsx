@@ -32,7 +32,7 @@ function DeleteCliente() {
       {clientes.map((cliente) => (
         <div key={cliente.id}>
           <p>{cliente.name}</p>
-          <button onClick={() => deleteUser(cliente.id)}>Eliminar</button>
+          <button onClick={() => deleteUser(cliente._id)}>Eliminar</button>
         </div>
       ))}
     </div>

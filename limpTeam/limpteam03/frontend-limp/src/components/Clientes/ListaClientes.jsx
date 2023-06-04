@@ -53,7 +53,7 @@ const ListaClientes = () => {
                 <BotonEditarCliente />
               </td>
               <td>
-                <BotonEliminarCliente />
+                <BotonEliminarCliente data={cliente} />
               </td>
             </tr>
             

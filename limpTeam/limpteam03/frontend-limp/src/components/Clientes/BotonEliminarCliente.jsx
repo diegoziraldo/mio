@@ -1,26 +1,26 @@
-import { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import PropTypes from "prop-types";
+import DeleteCliente from "./DeleteCliente";
 
-export default class BotonEliminarCliente extends Component {
 
+const BotonEliminarCliente = ({data})=> {
 
-  
-  render() {
     return (
       <>
-        <a
-          href="#"
-          className="btn btn-danger"
-          data-bs-toggle="modal"
-          data-bs-target="#Eliminar"
-        >
+      <button
+        className="btn btn-danger"
+        data-bs-toggle="modal"
+        data-bs-target={`#Eliminar-${data._id}`}
+      >
           Eliminar
-        </a>
+        </button>
         <form>
-          <div className="modal fade" id="Eliminar">
+          <div className="modal fade" id={`Eliminar-${data._id}`}>
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-body">
-                  <h3>Eliminar {}</h3>
+                  <h3>Eliminar {data.name}</h3>
+                  <DeleteCliente />
                   <button className="btn btn-danger">Eliminar</button>
                 </div>
               </div>
@@ -30,4 +30,8 @@ export default class BotonEliminarCliente extends Component {
       </>
     );
   }
-}
+  BotonEliminarCliente.propTypes = {
+    data: PropTypes.object.isRequired,
+  };
+  
+  export default BotonEliminarCliente;
