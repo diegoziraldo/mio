@@ -45,9 +45,9 @@ export default class ListaProveedores extends Component {
                 <th scope="row">{index + 1}</th>
                 <td>{proveedor.name}</td>
                 <td>{proveedor.lastname}</td>
-                <td>{proveedor.direccion}</td>
+                <td>{proveedor.address}</td>
                 <td>{proveedor.localidad}</td>
-                <td>{proveedor.telephono}</td>
+                <td>{proveedor.telephone}</td>
                 <td>{proveedor.email}</td>
 
 {/*                 <td><BotonDetallesCliente data={proveedor}/></td>

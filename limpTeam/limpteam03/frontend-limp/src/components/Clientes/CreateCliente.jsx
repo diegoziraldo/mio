@@ -16,9 +16,9 @@ state = {
     name:'',
     lastname:'',
     email:'',
-    direccion:'',
+    address:'',
     localidad:'',
-    telephono:''
+    telephone:''
 
   }
 
@@ -64,7 +64,7 @@ state = {
 
   onChangeClienteAddress = (e)=>{
     this.setState({
-      direccion: e.target.value
+      address: e.target.value
     })
   }
 
@@ -76,7 +76,7 @@ state = {
 
   onChangeClienteTelephone = (e)=>{
     this.setState({
-      telephono: e.target.value
+      telephone: e.target.value
     })
   }
 
@@ -88,9 +88,9 @@ state = {
       name: this.state.name,
       lastname: this.state.lastname,
       email: this.state.email,
-      direccion: this.state.direccion,
+      address: this.state.address,
       localidad: this.state.localidad,
-      telephono: this.state.telephono
+      telephone: this.state.telephone
     }
     await axios.post('http://localhost:3000/api/clientes', newCliente)
     window.location.href = 'clientes';
@@ -98,9 +98,9 @@ state = {
     this.setState({name: ''})
     this.setState({lastname: ''})
     this.setState({email: ''})
-    this.setState({direccion: ''})
+    this.setState({address: ''})
     this.setState({localidad: ''})
-    this.setState({telephono: ''})
+    this.setState({telephone: ''})
     this.getClientes();
 
   }
@@ -146,7 +146,7 @@ state = {
             <input 
               type="text" 
               className="form-control" 
-              value={this.state.direccion}
+              value={this.state.address}
               onChange={this.onChangeClienteAddress}
               />
           </div>     
@@ -164,7 +164,7 @@ state = {
             <input 
               type="number" 
               className="form-control" 
-              value={this.state.telephono}
+              value={this.state.telephone}
               onChange={this.onChangeClienteTelephone}
               />
           </div>  

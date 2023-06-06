@@ -8,7 +8,7 @@ const clienteSchema = new Schema(
     lastname: {
       type: String,
     },
-    direccion: {
+    address: {
       type: String,
     },
 
@@ -16,7 +16,7 @@ const clienteSchema = new Schema(
       type: String,
     },
 
-    telephono: {
+    telephone: {
       type: Number,
     },
     email: {

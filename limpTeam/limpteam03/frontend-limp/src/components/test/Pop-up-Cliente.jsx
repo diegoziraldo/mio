@@ -8,9 +8,9 @@ export default class PopUpCliente extends Component {
       name: '',
       lastname: '',
       email: '',
-      direccion: '',
+      address: '',
       localidad: '',
-      telephono: '',
+      telephone: '',
       modalIsOpen: false, // Estado para controlar la visibilidad del modal
     };
   
@@ -28,7 +28,7 @@ export default class PopUpCliente extends Component {
     };
   
     onChangeClienteAddress = (e) => {
-      this.setState({ direccion: e.target.value });
+      this.setState({ address: e.target.value });
     };
   
     onChangeClienteLocalidad = (e) => {
@@ -36,7 +36,7 @@ export default class PopUpCliente extends Component {
     };
   
     onChangeClienteTelephone = (e) => {
-      this.setState({ telephono: e.target.value });
+      this.setState({ telephone: e.target.value });
     };
   
   

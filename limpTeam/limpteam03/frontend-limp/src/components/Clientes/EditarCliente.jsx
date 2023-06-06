@@ -95,7 +95,7 @@ export default class EditarCliente extends Component {
                                   <input
                                     type="text"
                                     className="form-control"
-                                    value={this.state.direccion}
+                                    value={this.state.address}
                                     onChange={this.onChangeClienteAddress}
                                   />
                                 </div>
@@ -113,7 +113,7 @@ export default class EditarCliente extends Component {
                                   <input
                                     type="number"
                                     className="form-control"
-                                    value={this.state.telephono}
+                                    value={this.state.telephone}
                                     onChange={this.onChangeClienteTelephone}
                                   />
                                 </div>

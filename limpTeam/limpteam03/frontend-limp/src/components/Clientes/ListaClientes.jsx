@@ -41,16 +41,16 @@ const ListaClientes = () => {
               <th scope="row">{index + 1}</th>
               <td>{cliente.name}</td>
               <td>{cliente.lastname}</td>
-              <td>{cliente.direccion}</td>
+              <td>{cliente.address}</td>
               <td>{cliente.localidad}</td>
-              <td>{cliente.telephono}</td>
+              <td>{cliente.telephone}</td>
               <td>{cliente.email}</td>
 
               <td>
                 <BotonDetallesCliente data={cliente} />
               </td>
               <td>
-                <BotonEditarCliente />
+                <BotonEditarCliente data={cliente}/>
               </td>
               <td>
                 <BotonEliminarCliente data={cliente} />
