@@ -27,6 +27,7 @@ function App() {
         <Route path="/history-cliente" element={<HistorialCliente/>}></Route>
       </Routes>
     </div>
+   
     </Router>
  {/*    <Pruebas/> */}
     </>
