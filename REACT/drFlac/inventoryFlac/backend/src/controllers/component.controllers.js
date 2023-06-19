@@ -1,4 +1,4 @@
-const componentControllers = {}
+const componentsControllers = {}
 
 const Component = require('../models/Components')
 
@@ -7,17 +7,17 @@ componentsControllers.getComponents = async(req,res)=>{
     res.json(components);
 }
 
-productosControllers.createProducto = async(req,res)=>{
+componentsControllers.createComponents = async(req,res)=>{
     const {name, description, categoria, marca, price, img, stock, infoProveedor} = req.body;
-    const newProducto = new Producto({name, description, categoria, marca, price, img, stock, infoProveedor})
-    await newProducto.save();
-    res.json('Producto Create');
+    const newComponent = new Component({name, description, categoria, marca, price, img, stock, infoProveedor})
+    await newComponent.save();
+    res.json('Component Create');
     console.log(req.body);
 }
 
-productosControllers.deleteProducto = async(req,res)=>{
-    await Producto.findByIdAndDelete(req.params.id)
-    res.json('Producto deleted');
+componentsControllers.deleteComponents = async(req,res)=>{
+    await Component.findByIdAndDelete(req.params.id)
+    res.json('Component deleted');
 }
 
 
