@@ -1,7 +1,6 @@
 const {Router} = require('express');
 const router = Router();
-const { getComponents, createComponents, deleteComponents } = require('../controllers/components.controllers')
-
+const { getComponents, createComponents,updateComponents, deleteComponents } = require('../controllers/components.controllers')
 
 router.route('/')
     .get(getComponents)
@@ -11,7 +10,7 @@ router.route('/')
 
 
 router.route('/:id')
-
+    .put(updateComponents)
     .delete(deleteComponents)
 
 

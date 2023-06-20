@@ -20,5 +20,25 @@ componentsControllers.deleteComponents = async(req,res)=>{
     res.json('Component deleted');
 }
 
+componentsControllers.updateComponents = async(req, res) => {
+    const { id, name, description, category, brand, price, img, stock, infoProveedor } = req.body;
+    const components = await Component.findByIdAndUpdate(id, {
+      name,
+      description,
+      category,
+      brand,
+      price,
+      img,
+      stock,
+      infoProveedor,
+    });
+  
+/*     if (!component) {
+      res.status(404).json('Component not found');
+      return;
+    } */
+  
+    res.json('Component updated');
+  };
 
-module.exports = productosControllers;
+module.exports = componentsControllers;
