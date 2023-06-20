@@ -1,13 +1,13 @@
-import Components from './components/componentes'
+import Components from "./components/Componentes"
 
 function App() {
+
+
   return (
     <>
       <Components />
-      <p>sa</p>
     </>
   )
-
 }
 
-export default App;
+export default App
