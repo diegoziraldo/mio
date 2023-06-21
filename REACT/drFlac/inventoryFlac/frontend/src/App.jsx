@@ -1,11 +1,13 @@
-import Components from "./components/Componentes"
 
+import ComponentInput from "./components/inputComponents"
+import 'bootstrap/dist/css/bootstrap.css';
 function App() {
 
 
   return (
     <>
-      <Components />
+
+      <ComponentInput />
     </>
   )
 }

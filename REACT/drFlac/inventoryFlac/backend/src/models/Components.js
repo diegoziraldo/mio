@@ -10,11 +10,11 @@ const componentSchema = new Schema({
 
 
     },
-    categoria:{
+    category:{
         type: String,
 
     },
-    marca:{
+    brand:{
         type: String,
     },
     
@@ -22,7 +22,7 @@ const componentSchema = new Schema({
         type: Number,
     },
 
-    img:{
+    image:{
         type: Number,
     },
     stock:{
