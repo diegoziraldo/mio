@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const Components = () => {
-  const [components, setComponents] = useState([]); //Este hook va a guardar en un array todos los componentes.
+  const [components, setComponents] = useState([]); //This hook will save all the components in an array.
 
   useEffect(() => {
     getComponents();
@@ -19,9 +20,22 @@ const Components = () => {
 
   return (
     <>
-      {components.map(component => (
-        <p key={component._id}>{component._id}</p>
-      ))}
+    <div className="row">
+    {components.map((component) => (
+      <div className="col-md-4" key={component._id}>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{component.name}</h5>
+            <p className="card-text">{component.description}</p>
+            <p className="card-text">{component.category}</p>
+            <p className="card-text">{component.brand}</p>
+            <p className="card-text">{component.infoProvider}</p>
+            <p className="card-text">{component.stock} unid.</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
     </>
   );
 };

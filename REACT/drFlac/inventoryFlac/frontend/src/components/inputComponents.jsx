@@ -41,6 +41,7 @@ const ComponentInput = ({ component }) => {
   };
 
   return (
+<div className='container'>    
 <form onSubmit={handleSubmit} className='container'>
   <div className="form-row">
     <div className="col-md-6 mb-3">
@@ -132,6 +133,7 @@ const ComponentInput = ({ component }) => {
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
+</div>
 
   );
 };

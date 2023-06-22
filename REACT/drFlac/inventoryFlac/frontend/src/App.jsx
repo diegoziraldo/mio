@@ -1,4 +1,4 @@
-
+import Components from "./components/getComponentes";
 import ComponentInput from "./components/inputComponents"
 import 'bootstrap/dist/css/bootstrap.css';
 function App() {
@@ -6,8 +6,9 @@ function App() {
 
   return (
     <>
-
       <ComponentInput />
+      <Components/>
+
     </>
   )
 }
