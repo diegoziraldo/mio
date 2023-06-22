@@ -45,7 +45,7 @@ const ComponentInput = ({ component }) => {
 <form onSubmit={handleSubmit} className='container'>
   <div className="form-row">
     <div className="col-md-6 mb-3">
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Nombre</label>
       <input
         type="text"
         id="name"
@@ -55,7 +55,7 @@ const ComponentInput = ({ component }) => {
       />
     </div>
     <div className="col-md-6 mb-3">
-      <label htmlFor="description">Description</label>
+      <label htmlFor="description">Descripcion</label>
       <input
         type="text"
         id="description"
@@ -67,7 +67,7 @@ const ComponentInput = ({ component }) => {
   </div>
   <div className="form-row">
     <div className="col-md-6 mb-3">
-      <label htmlFor="category">Category</label>
+      <label htmlFor="category">Categoria</label>
       <input
         type="text"
         id="category"
@@ -77,7 +77,7 @@ const ComponentInput = ({ component }) => {
       />
     </div>
     <div className="col-md-6 mb-3">
-      <label htmlFor="brand">Brand</label>
+      <label htmlFor="brand">Marca</label>
       <input
         type="text"
         id="brand"
@@ -89,7 +89,7 @@ const ComponentInput = ({ component }) => {
   </div>
   <div className="form-row">
     <div className="col-md-6 mb-3">
-      <label htmlFor="price">Price</label>
+      <label htmlFor="price">Precio</label>
       <input
         type="number"
         id="price"
@@ -121,7 +121,7 @@ const ComponentInput = ({ component }) => {
       />
     </div>
     <div className="col-md-6 mb-3">
-      <label htmlFor="infoProveedor">Provider Info</label>
+      <label htmlFor="infoProveedor">Proveedor</label>
       <input
         type="text"
         id="infoProveedor"
@@ -129,9 +129,9 @@ const ComponentInput = ({ component }) => {
         value={infoProveedor}
         onChange={(e) => setProviderinfo(e.target.value)}
       />
+      <button type="submit" className="btn btn-primary">Guardar</button>
     </div>
   </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
 </form>
 </div>
 

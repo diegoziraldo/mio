@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import ComponentInput from './inputComponents'
+
 
 const Components = () => {
   const [components, setComponents] = useState([]); //This hook will save all the components in an array.
@@ -20,6 +22,7 @@ const Components = () => {
 
   return (
     <>
+    <ComponentInput />
     <div className="row">
     {components.map((component) => (
       <div className="col-md-4" key={component._id}>
