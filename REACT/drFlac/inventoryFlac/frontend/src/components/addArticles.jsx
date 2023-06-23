@@ -15,6 +15,9 @@ const AddArticles = () => {
   return (
     <>
       <nav className="" >
+      <h1>
+        Stock
+      </h1>
         <div className="container d-flex justify-content-between" >
           <Link to="/addarticles" className="btn btn-success">
             Agregar componente
