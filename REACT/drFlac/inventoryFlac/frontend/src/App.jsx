@@ -8,6 +8,10 @@ import Clientes from "./components/clientes";
 import Reparaciones from "./components/reparaciones";
 import AddArticles from "./components/addArticles";
 import ComponentInput from "./components/inputComponents";
+import SimularPresupuestos from "./components/simularPresupuestos";
+import CrearPresupuestos from "./components/crearPresupuestos";
+import PresupuestosArmados from "./components/presupuestosArmados";
+
 
 function App() {
   return (
@@ -21,6 +25,9 @@ function App() {
           <Route path="/reparaciones" element={<Reparaciones />}></Route>
           <Route path="/stock" element={<AddArticles />}></Route>
           <Route path="/addarticles" element={<ComponentInput />}></Route>
+          <Route path="/simularPresupuestos" element={<SimularPresupuestos />}></Route>
+          <Route path="/crearPresupuestos" element={<CrearPresupuestos />}></Route>
+          <Route path="/presupuestosArmados" element={<PresupuestosArmados />}></Route>
         </Routes>
       </Router>
     </>
