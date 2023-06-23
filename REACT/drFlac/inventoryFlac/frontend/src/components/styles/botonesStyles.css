@@ -1,5 +1,6 @@
-.btn {
-    width: 100%;
-    margin: 20px;
+.btnIndex {
+  width: 100%; /* Tamaño deseado */
+  margin: 20px;
+  font-size: 16px;
 
   }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import ComponentInput from './inputComponents'
+import DeleteComponent from "./deleteComponent";
 
 
 const Components = () => {
@@ -22,7 +22,7 @@ const Components = () => {
 
   return (
     <>
-    <ComponentInput />
+
     <div className="row">
     {components.map((component) => (
       <div className="col-md-4" key={component._id}>
@@ -34,6 +34,7 @@ const Components = () => {
             <p className="card-text">{component.brand}</p>
             <p className="card-text">{component.infoProvider}</p>
             <p className="card-text">{component.stock} unid.</p>
+            <DeleteComponent />
           </div>
         </div>
       </div>
