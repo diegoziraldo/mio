@@ -22,7 +22,7 @@ const componentSchema = new Schema({
         type: Number,
     },
     code:{
-        type: Number,
+        type: String,
     },
 
     image:{

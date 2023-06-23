@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SearchComponents from "./serchComponents";
 
 const AddArticles = () => {
+
   //const [showComponent, setShowComponent] = useState(false);
 
   /*   const toggleComponent = () => {
@@ -13,8 +14,8 @@ const AddArticles = () => {
  */
   return (
     <>
-      <nav className="">
-        <div className="container d-flex justify-content-between">
+      <nav className="" >
+        <div className="container d-flex justify-content-between" >
           <Link to="/addarticles" className="btn btn-success">
             Agregar componente
           </Link>

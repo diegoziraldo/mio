@@ -26,16 +26,16 @@ const SearchComponents = () => {
               const codeAsString = component.code.toString();
               const priceAsString = component.price.toString();
               const stockAsString = component.stock.toString();
-
+              const regex = new RegExp(`\\b${lowercaseTerm}`);
               return (
-                component.name.toLowerCase().includes(lowercaseTerm) ||
-                component.description.toLowerCase().includes(lowercaseTerm) ||
-                component.category.toLowerCase().includes(lowercaseTerm) ||
-                component.brand.toLowerCase().includes(lowercaseTerm) ||
-                codeAsString.toLowerCase().includes(lowercaseTerm) ||
-                priceAsString.toLowerCase().includes(lowercaseTerm) ||
-                stockAsString.toLowerCase().includes(lowercaseTerm) ||
-                component.infoProveedor.toLowerCase().includes(lowercaseTerm)
+                regex.test(component.name.toLowerCase()) ||
+                regex.test(component.description.toLowerCase()) ||
+                regex.test(component.category.toLowerCase()) ||
+                regex.test(component.brand.toLowerCase()) ||
+                regex.test(codeAsString.toLowerCase()) ||
+                regex.test(priceAsString.toLowerCase()) ||
+                regex.test(stockAsString.toLowerCase()) ||
+                regex.test(component.infoProveedor.toLowerCase())
               );
             });
 

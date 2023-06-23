@@ -1,7 +1,11 @@
 
 const Presupuestos = () => {
+  const style = {
+    backgroundColor: "cornflowerblue", // Cambia este valor al color de fondo deseado
+  };
+
     return (
-      <h1>
+      <h1 style={style}>
         Presupuestos
       </h1>
     );
