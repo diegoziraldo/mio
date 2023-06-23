@@ -8,8 +8,8 @@ componentsControllers.getComponents = async(req,res)=>{
 }
 
 componentsControllers.createComponents = async(req,res)=>{
-    const {name, description, category, brand, price, image, stock, infoProveedor} = req.body;
-    const newComponent = new Component({name, description, category, brand, price, image, stock, infoProveedor})
+    const {name, description, category, brand, price, image, code, stock, infoProveedor} = req.body;
+    const newComponent = new Component({name, description, category, brand, price, image, code, stock, infoProveedor})
     await newComponent.save();
     res.json('Component Create');
     console.log(req.body);
@@ -21,7 +21,7 @@ componentsControllers.deleteComponents = async(req,res)=>{
 }
 
 componentsControllers.updateComponents = async(req, res) => {
-    const { id, name, description, category, brand, price, image, stock, infoProveedor } = req.body;
+    const { id, name, description, category, brand, price, image, code, stock, infoProveedor } = req.body;
     const components = await Component.findByIdAndUpdate(id, {
       name,
       description,
@@ -29,6 +29,7 @@ componentsControllers.updateComponents = async(req, res) => {
       brand,
       price,
       image,
+      code,
       stock,
       infoProveedor,
     });

@@ -21,30 +21,23 @@ const SearchComponents = () => {
           if (typeof data === "object") {
             const components = Object.keys(data).map((key) => data[key]);
 
-            const results = components.filter(
-              (component) =>
-                component.name
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) ||
-                component.description
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) ||
-                component.category
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) ||
-                component.brand
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) ||
-/*                 component.price
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) || */
-/*                 component.stock
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) || */
-                component.infoProveedor
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())
-            );
+            const results = components.filter((component) => {
+              const lowercaseTerm = searchTerm.toLowerCase();
+              const codeAsString = component.code.toString();
+              const priceAsString = component.price.toString();
+              const stockAsString = component.stock.toString();
+
+              return (
+                component.name.toLowerCase().includes(lowercaseTerm) ||
+                component.description.toLowerCase().includes(lowercaseTerm) ||
+                component.category.toLowerCase().includes(lowercaseTerm) ||
+                component.brand.toLowerCase().includes(lowercaseTerm) ||
+                codeAsString.toLowerCase().includes(lowercaseTerm) ||
+                priceAsString.toLowerCase().includes(lowercaseTerm) ||
+                stockAsString.toLowerCase().includes(lowercaseTerm) ||
+                component.infoProveedor.toLowerCase().includes(lowercaseTerm)
+              );
+            });
 
             setSearchResults(results);
           } else {
@@ -84,17 +77,42 @@ const SearchComponents = () => {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-md-10 mx-auto">
-          {searchResults.map((result) => (
-            <div key={result.id}>
-              {/* Renderizar los resultados de búsqueda */}
-              {result.description}
-              {result.stock}
-            </div>
-          ))}
+      {searchResults.length > 0 && (
+        <div className="row">
+          <div className="col-md-10 mx-auto">
+            <table className="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Codigo</th>
+                  <th>Categoria</th>
+                  <th>Marca</th>
+                  <th>Precio</th>
+                  <th>Proveedor</th>
+                  <th>Stock</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {searchResults.map((result) => (
+                  <tr key={result.id}>
+                    <td>{result.name}</td>
+                    <td>{result.description}</td>
+                    <td>{result.code}</td>
+                    <td>{result.category}</td>
+                    <td>{result.brand}</td>
+                    <td>{result.price}</td>
+                    <td>{result.infoProveedor}</td>
+                    <td>{result.stock}</td>
+                    <td>{result.actions}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

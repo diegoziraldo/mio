@@ -21,6 +21,9 @@ const componentSchema = new Schema({
     price:{
         type: Number,
     },
+    code:{
+        type: Number,
+    },
 
     image:{
         type: Number,

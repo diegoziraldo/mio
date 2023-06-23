@@ -13,7 +13,6 @@ const AddArticles = () => {
  */
   return (
     <>
-      <SearchComponents />
       <nav className="">
         <div className="container d-flex justify-content-between">
           <Link to="/addarticles" className="btn btn-success">
@@ -21,6 +20,7 @@ const AddArticles = () => {
           </Link>
         </div>
       </nav>
+      <SearchComponents />
     </>
   );
 };

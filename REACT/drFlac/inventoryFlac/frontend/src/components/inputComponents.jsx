@@ -13,6 +13,7 @@ const ComponentInput = ({ component }) => {
   const [brand, setBrand] = useState(component?.brand || '');
   const [price, setPrice] = useState(component?.price || '');
   const [image, setImage] = useState(component?.image || '');
+  const [code, setCode] = useState(component?.code || '');
   const [stock, setStock] = useState(component?.stock || '');
   const [infoProveedor, setProviderinfo] = useState(component?.infoProveedor || '');
 
@@ -25,6 +26,7 @@ const ComponentInput = ({ component }) => {
       brand,
       price,
       image,
+      code,
       stock,
       infoProveedor,
     };
@@ -62,6 +64,16 @@ const ComponentInput = ({ component }) => {
         className="form-control"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+      />
+    </div>
+    <div className="col-md-6 mb-3">
+      <label htmlFor="description">Codigo</label>
+      <input
+        type="text"
+        id="description"
+        className="form-control"
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
       />
     </div>
   </div>
