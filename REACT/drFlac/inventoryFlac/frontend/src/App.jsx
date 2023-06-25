@@ -3,13 +3,13 @@ import NavMenu from "./components/botones";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Index from './components/index'
-import Presupuestos from "./components/presupuestos";
-import Clientes from "./components/clientes";
-import Reparaciones from "./components/reparaciones";
-import AddArticles from "./components/addArticles";
-import ComponentInput from "./components/inputComponents";
+import Presupuestos from "./components/presupuestos/presupuestos";
+import Clientes from "./components/clientes/clientes";
+import Reparaciones from "./components/reparaciones/reparaciones";
+import AddArticles from "./components/stock/addArticles";
+import ComponentInput from "./components/stock/inputComponents";
 import SimularPresupuestos from "./components/simularPresupuestos";
-import CrearPresupuestos from "./components/crearPresupuestos";
+import CrearPresupuestos from "./components/presupuestos/crearPresupuestos";
 import PresupuestosArmados from "./components/presupuestosArmados";
 
 
