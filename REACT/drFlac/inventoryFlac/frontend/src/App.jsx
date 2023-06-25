@@ -4,13 +4,13 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import Index from './components/index'
 import Presupuestos from "./components/presupuestos/presupuestos";
-import Clientes from "./components/clientes/clientes";
+import Clientes from "./components/clientes/Clientes";
 import Reparaciones from "./components/reparaciones/reparaciones";
 import AddArticles from "./components/stock/addArticles";
 import ComponentInput from "./components/stock/inputComponents";
-import SimularPresupuestos from "./components/simularPresupuestos";
+import SimularPresupuestos from "./components/presupuestos/simularPresupuestos";
 import CrearPresupuestos from "./components/presupuestos/crearPresupuestos";
-import PresupuestosArmados from "./components/presupuestosArmados";
+import PresupuestosArmados from "./components/presupuestos/presupuestosArmados";
 
 
 function App() {

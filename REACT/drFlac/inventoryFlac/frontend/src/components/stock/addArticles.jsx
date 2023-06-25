@@ -1,24 +1,12 @@
-//import { useState } from 'react';
 import { Link } from "react-router-dom";
-//import Components from './getComponentes'
-//import ComponentInput from './inputComponents';
 import SearchComponents from "../stock/serchComponents";
 
 const AddArticles = () => {
-
-  //const [showComponent, setShowComponent] = useState(false);
-
-  /*   const toggleComponent = () => {
-    setShowComponent(!showComponent);
-  };
- */
   return (
     <>
-      <nav className="" >
-      <h1>
-        Stock
-      </h1>
-        <div className="container d-flex justify-content-between" >
+      <nav className="">
+        <h1>Stock</h1>
+        <div className="container d-flex justify-content-between">
           <Link to="/addarticles" className="btn btn-success">
             Agregar componente
           </Link>
