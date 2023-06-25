@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 
-//import SearchClientes from "../serchClientes"; //Aca vamos a traer el componente que va a buscar los clientes
+import SearchClients from "./searchClients"; //Aca vamos a traer el componente que va a buscar los clientes
 
 
 
@@ -22,6 +22,7 @@ const AddClientes = () => {
  */
   return (
     <>
+      <SearchClients />
       <nav className="" >
         <div className="container d-flex justify-content-between" >
           <Link to="/addclientes" className="btn btn-success">
@@ -29,7 +30,6 @@ const AddClientes = () => {
           </Link>
         </div>
       </nav>
-      {/* <SearchClientes /> */}
     </>
   );
 };

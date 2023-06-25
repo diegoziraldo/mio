@@ -5,16 +5,12 @@ const NavMenu = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container d-flex justify-content-between">
-        <Link to="/" className="btn btn-success btnIndex">
-          Inicio
+        <Link to="/clientes" className="btn btn-danger btnIndex">
+          Clientes
         </Link>
 
         <Link to="/presupuestos" className="btn btn-primary btnIndex">
           Presupuestos
-        </Link>
-
-        <Link to="/clientes" className="btn btn-danger btnIndex">
-          Clientes
         </Link>
 
         <Link to="/reparaciones" className="btn btn-dark btnIndex">

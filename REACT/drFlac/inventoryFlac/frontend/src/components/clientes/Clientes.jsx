@@ -5,7 +5,6 @@ const Clientes = () => {
     
     return (
       <h1>
-          Clientes
           <AddClientes/>
         </h1>
       );
