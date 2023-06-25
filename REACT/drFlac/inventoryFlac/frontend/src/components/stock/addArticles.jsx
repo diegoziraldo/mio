@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 //import Components from './getComponentes'
 //import ComponentInput from './inputComponents';
-import SearchComponents from "./serchComponents";
+import SearchComponents from "../stock/serchComponents";
 
 const AddArticles = () => {
 

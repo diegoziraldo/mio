@@ -12,44 +12,42 @@ const SearchComponents = () => {
       return;
     }
 
-    const delayDebounceFn = setTimeout(() => {
-      axios
-        .get("http://localhost:3000/api/components")
-        .then((response) => {
-          const data = response.data;
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/components");
+        const data = response.data;
 
-          if (typeof data === "object") {
-            const components = Object.keys(data).map((key) => data[key]);
+        if (typeof data === "object") {
+          const components = Object.keys(data).map((key) => data[key]);
 
-            const results = components.filter((component) => {
-              const lowercaseTerm = searchTerm.toLowerCase();
-              const codeAsString = component.code.toString();
-              const priceAsString = component.price.toString();
-              const stockAsString = component.stock.toString();
-              const regex = new RegExp(`\\b${lowercaseTerm}`);
-              return (
-                regex.test(component.name.toLowerCase()) ||
-                regex.test(component.description.toLowerCase()) ||
-                regex.test(component.category.toLowerCase()) ||
-                regex.test(component.brand.toLowerCase()) ||
-                regex.test(codeAsString.toLowerCase()) ||
-                regex.test(priceAsString.toLowerCase()) ||
-                regex.test(stockAsString.toLowerCase()) ||
-                regex.test(component.infoProveedor.toLowerCase())
-              );
-            });
+          const results = components.filter((component) => {
+            const lowercaseTerm = searchTerm.toLowerCase();
+            const codeAsString = component.code.toString();
+            const priceAsString = component.price.toString();
+            const stockAsString = component.stock.toString();
+            const regex = new RegExp(`\\b${lowercaseTerm}`);
+            return (
+              regex.test(component.name.toLowerCase()) ||
+              regex.test(component.description.toLowerCase()) ||
+              regex.test(component.category.toLowerCase()) ||
+              regex.test(component.brand.toLowerCase()) ||
+              regex.test(codeAsString.toLowerCase()) ||
+              regex.test(priceAsString.toLowerCase()) ||
+              regex.test(stockAsString.toLowerCase()) ||
+              regex.test(component.infoProveedor.toLowerCase())
+            );
+          });
 
-            setSearchResults(results);
-          } else {
-            console.log("Los datos no son un objeto");
-          }
-        })
-        .catch((error) => {
-          console.error("Error al obtener los componentes:", error);
-        });
-    }, 1);
+          setSearchResults(results);
+        } else {
+          console.log("Los datos no son un objeto");
+        }
+      } catch (error) {
+        console.error("Error al obtener los componentes:", error);
+      }
+    };
 
-    return () => clearTimeout(delayDebounceFn);
+    fetchData();
   }, [searchTerm]);
 
   const handleChange = (event) => {
@@ -70,10 +68,6 @@ const SearchComponents = () => {
               value={searchTerm}
               onChange={handleChange}
             />
-            <label className="form-label" htmlFor="search-input"></label>
-            <button type="button" className="btn btn-primary">
-              <i className="fas fa-search"></i>
-            </button>
           </div>
         </div>
       </div>
