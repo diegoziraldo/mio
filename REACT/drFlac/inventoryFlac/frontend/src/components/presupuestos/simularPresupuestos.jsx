@@ -1,11 +1,13 @@
+import SearchComponents from "../stock/searchComponents";
+
 
 const SimularPresupuestos = () => {
 
     
     return (
-      <h1>
-          SimularPresupuestos
-        </h1>
+      <>
+        <SearchComponents/>
+      </>
       );
     };
     

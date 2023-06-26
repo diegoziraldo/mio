@@ -61,7 +61,7 @@ const SearchComponents = () => {
         <div className="col-md-10 mx-auto">
           <div className="input-group">
             <input
-              placeholder="Buscar Cliente..."
+              placeholder="Buscar Componente..."
               type="search"
               className="form-control"
               id="search-input"
