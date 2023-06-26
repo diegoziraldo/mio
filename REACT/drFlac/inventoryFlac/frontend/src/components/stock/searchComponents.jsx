@@ -1,5 +1,8 @@
-import "@fortawesome/fontawesome-free/css/all.css";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "../../components/styles/botonesStyles.css";
 import { useState, useEffect } from "react";
 
 const SearchComponents = () => {
@@ -14,7 +17,9 @@ const SearchComponents = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/components");
+        const response = await axios.get(
+          "http://localhost:3000/api/components"
+        );
         const data = response.data;
 
         if (typeof data === "object") {
@@ -91,7 +96,7 @@ const SearchComponents = () => {
               <tbody>
                 {searchResults.map((result) => (
                   <tr key={result.id}>
-                    <td>{result.name}</td>
+                    <td className="bold-name">{result.name}</td>
                     <td>{result.description}</td>
                     <td>{result.code}</td>
                     <td>{result.category}</td>
@@ -99,7 +104,28 @@ const SearchComponents = () => {
                     <td>{result.price}</td>
                     <td>{result.infoProveedor}</td>
                     <td>{result.stock}</td>
-                    <td>{result.actions}</td>
+                    <td>
+                      <div className="action-icons-container">
+                        <button
+                          className="btn btn-primary"
+                          //onClick={() => handleEdit(result.id)}
+                        >
+                          <FontAwesomeIcon
+                            icon={faEdit}
+                            className="action-icon"
+                          />
+                        </button>
+                        <button
+                          className="btn btn-danger"
+                          //onClick={() => handleDelete(result.id)}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="action-icon"
+                          />
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

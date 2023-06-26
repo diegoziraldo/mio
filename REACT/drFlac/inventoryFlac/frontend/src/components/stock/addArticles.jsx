@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchComponents from "../stock/serchComponents";
+import SearchComponents from "./searchComponents";
 
 const AddArticles = () => {
   return (
@@ -7,7 +7,7 @@ const AddArticles = () => {
       <SearchComponents />
       <nav className="">
         <div className="container d-flex justify-content-between">
-          <Link to="/addarticles" className="btn btn-success">
+          <Link to="./addarticles" className="btn btn-success">
             Agregar componente
           </Link>
         </div>

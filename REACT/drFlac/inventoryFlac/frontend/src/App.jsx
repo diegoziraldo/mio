@@ -24,7 +24,7 @@ function App() {
           <Route path="/clientes" element={<Clientes />}></Route>
           <Route path="/reparaciones" element={<Reparaciones />}></Route>
           <Route path="/stock" element={<AddArticles />}></Route>
-          <Route path="/addarticles" element={<ComponentInput />}></Route>
+          <Route path="/stock/addarticles" element={<ComponentInput />}></Route>
           <Route path="/simularPresupuestos" element={<SimularPresupuestos />}></Route>
           <Route path="/crearPresupuestos" element={<CrearPresupuestos />}></Route>
           <Route path="/presupuestosArmados" element={<PresupuestosArmados />}></Route>

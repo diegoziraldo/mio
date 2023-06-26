@@ -25,7 +25,7 @@ const AddClientes = () => {
       <SearchClients />
       <nav className="" >
         <div className="container d-flex justify-content-between" >
-          <Link to="/addclientes" className="btn btn-success">
+          <Link to="./addclientes" className="btn btn-success">
             Agregar Cliente
           </Link>
         </div>

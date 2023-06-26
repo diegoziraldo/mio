@@ -2,6 +2,7 @@
 const Reparaciones = () => {
   const style = {
     backgroundColor: "lightslategrey", // Cambia este valor al color de fondo deseado
+
   };
   
   return (

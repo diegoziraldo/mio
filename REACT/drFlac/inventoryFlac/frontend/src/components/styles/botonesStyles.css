@@ -2,5 +2,30 @@
   width: 100%; /* Tamaño deseado */
   margin: 20px;
   font-size: 16px;
-  background-color: darkkhaki;
+  opacity: 0.7;
+  transition:0.2s ease;
+  }
+
+  .btnIndex.active {
+    font-weight: bolder;
+    font-style: unset;
+    opacity: 1;
+    transition:0.2s ease;
+  }
+
+  .table td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  
+  .action-icons-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .bold-name {
+    font-weight: bold;
   }
