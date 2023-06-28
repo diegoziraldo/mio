@@ -1,45 +1,141 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-free/css/all.css";
-import "../../components/styles/botonesStyles.css";
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
+import img from "../../img/transistor.png";
+
+const StockTable = ({ searchResults, showActions }) => {
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleRowClick = (item) => {
+    setSelectedItem(item);
+    setIsPopupOpen(true);
+  };
+
+  return (
+    <div className="row">
+      <div className="col-md-8">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Código</th>
+              <th>Stock</th>
+              {showActions && <th>Acciones</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {searchResults.map((result) => (
+              <tr key={result.id} onClick={() => handleRowClick(result)}>
+                <td className="bold-name">{result.name}</td>
+                <td>{result.description}</td>
+                <td>{result.code}</td>
+                <td>{result.stock}</td>
+                {showActions && (
+                  <td>
+                    <div className="action-icons-container">
+                      {showActions === "simularPresupuestos" ? (
+                        <button className="btn btn-success">Agregar</button>
+                      ) : (
+                        <>
+                          <button className="btn btn-primary">
+                            <FontAwesomeIcon
+                              icon={faEdit}
+                              className="action-icon"
+                            />
+                          </button>
+                          <button className="btn btn-danger">
+                            <FontAwesomeIcon
+                              icon={faTrash}
+                              className="action-icon"
+                            />
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {isPopupOpen && selectedItem && (
+        <div className="col-md-4">
+          <div className="card tarjetaComponentes">
+            <img src={img} className="card-img-top" alt="Componente" />
+            <div className="card-body">
+              <h5>{selectedItem.name}</h5>
+              <p>{selectedItem.description}</p>
+              <p className="card-text">Código: {selectedItem.code}</p>
+              <p>Categoría: {selectedItem.category}</p>
+              <p>Marca: {selectedItem.brand}</p>
+              <p>Precio: {selectedItem.price}</p>
+              <p>Proveedor: {selectedItem.infoProveedor}</p>
+              <p>Stock: {selectedItem.stock}</p>
+              <button
+                className="btn btn-primary"
+                onClick={() => setIsPopupOpen(false)}
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+StockTable.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  showActions: PropTypes.bool.isRequired,
+};
 
 const SearchComponents = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
-    if (searchTerm === "") {
-      setSearchResults([]);
-      return;
-    }
-
     const fetchData = async () => {
       try {
+        if (searchTerm === "") {
+          setSearchResults([]);
+          return;
+        }
+
         const response = await axios.get(
           "http://localhost:3000/api/components"
         );
         const data = response.data;
 
         if (typeof data === "object") {
-          const components = Object.keys(data).map((key) => data[key]);
+          const components = Object.values(data);
 
           const results = components.filter((component) => {
             const lowercaseTerm = searchTerm.toLowerCase();
-            const codeAsString = component.code.toString();
-            const priceAsString = component.price.toString();
-            const stockAsString = component.stock.toString();
-            const regex = new RegExp(`\\b${lowercaseTerm}`);
-            return (
-              regex.test(component.name.toLowerCase()) ||
-              regex.test(component.description.toLowerCase()) ||
-              regex.test(component.category.toLowerCase()) ||
-              regex.test(component.brand.toLowerCase()) ||
-              regex.test(codeAsString.toLowerCase()) ||
-              regex.test(priceAsString.toLowerCase()) ||
-              regex.test(stockAsString.toLowerCase()) ||
-              regex.test(component.infoProveedor.toLowerCase())
+            const propertiesToSearch = [
+              "name",
+              "description",
+              "category",
+              "brand",
+              "code",
+              "price",
+              "stock",
+              "infoProveedor",
+            ];
+
+            return propertiesToSearch.some((property) =>
+              component[property]
+                ?.toString()
+                .toLowerCase()
+                .startsWith(lowercaseTerm)
             );
           });
 
@@ -60,10 +156,14 @@ const SearchComponents = () => {
     setSearchTerm(value);
   };
 
+  const showActions =
+    location.pathname === "/stock" ||
+    location.pathname === "/simularPresupuestos";
+
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-10 mx-auto">
+        <div className="col-md-8">
           <div className="input-group">
             <input
               placeholder="Buscar Componente..."
@@ -75,64 +175,14 @@ const SearchComponents = () => {
             />
           </div>
         </div>
+
+        {searchResults.length > 0 && (
+          <StockTable
+            searchResults={searchResults}
+            showActions={showActions ? location.pathname.split("/")[1] : false}
+          />
+        )}
       </div>
-      {searchResults.length > 0 && (
-        <div className="row">
-          <div className="col-md-10 mx-auto">
-            <table className="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Codigo</th>
-                  <th>Categoria</th>
-                  <th>Marca</th>
-                  <th>Precio</th>
-                  <th>Proveedor</th>
-                  <th>Stock</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {searchResults.map((result) => (
-                  <tr key={result.id}>
-                    <td className="bold-name">{result.name}</td>
-                    <td>{result.description}</td>
-                    <td>{result.code}</td>
-                    <td>{result.category}</td>
-                    <td>{result.brand}</td>
-                    <td>{result.price}</td>
-                    <td>{result.infoProveedor}</td>
-                    <td>{result.stock}</td>
-                    <td>
-                      <div className="action-icons-container">
-                        <button
-                          className="btn btn-primary"
-                          //onClick={() => handleEdit(result.id)}
-                        >
-                          <FontAwesomeIcon
-                            icon={faEdit}
-                            className="action-icon"
-                          />
-                        </button>
-                        <button
-                          className="btn btn-danger"
-                          //onClick={() => handleDelete(result.id)}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="action-icon"
-                          />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

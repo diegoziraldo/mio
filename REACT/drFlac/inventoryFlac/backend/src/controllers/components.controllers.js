@@ -1,46 +1,74 @@
-const componentsControllers = {}
+const componentsControllers = {};
+const Component = require("../models/Components");
 
-const Component = require('../models/Components')
+componentsControllers.getComponents = async (req, res) => {
+  const components = await Component.find();
+  res.json(components);
+};
+componentsControllers.createComponents = async (req, res) => {
+  const {
+    name,
+    description,
+    category,
+    brand,
+    price,
+    code,
+    image,
+    stock,
+    infoProveedor,
+    author,
+  } = req.body;
 
-componentsControllers.getComponents = async(req,res)=>{
-    const components = await Component.find();
-    res.json(components);
-}
+  const newComponent = new Component({
+    name,
+    description,
+    category,
+    brand,
+    price,
+    code,
+    image,
+    stock,
+    infoProveedor,
+    author,
+  });
 
-componentsControllers.createComponents = async(req,res)=>{
-    const {name, description, category, brand, price, image, code, stock, infoProveedor, author} = req.body;
-    const newComponent = new Component({name, description, category, brand, price, image, code, stock, infoProveedor, author})
-    await newComponent.save();
-    res.json('Component Create');
-    console.log(req.body);
-}
+  await newComponent.save();
+  res.json("Component Created");
+  console.log(req.body);
+};
+componentsControllers.deleteComponents = async (req, res) => {
+  await Component.findByIdAndDelete(req.params.id);
+  res.json("Component deleted");
+};
+componentsControllers.updateComponents = async (req, res) => {
+  const {
+    id,
+    name,
+    description,
+    category,
+    brand,
+    price,
+    image,
+    code,
+    stock,
+    infoProveedor,
+    author,
+  } = req.body;
+  const components = await Component.findByIdAndUpdate(id, {
+    name,
+    description,
+    category,
+    brand,
+    price,
+    image,
+    code,
+    stock,
+    infoProveedor,
+    author,
+  });
 
-componentsControllers.deleteComponents = async(req,res)=>{
-    await Component.findByIdAndDelete(req.params.id)
-    res.json('Component deleted');
-}
+  res.json("Component updated");
+};
 
-componentsControllers.updateComponents = async(req, res) => {
-    const { id, name, description, category, brand, price, image, code, stock, infoProveedor, author } = req.body;
-    const components = await Component.findByIdAndUpdate(id, {
-      name,
-      description,
-      category,
-      brand,
-      price,
-      image,
-      code,
-      stock,
-      infoProveedor,
-      author
-    });
-  
-/*     if (!component) {
-      res.status(404).json('Component not found');
-      return;
-    } */
-  
-    res.json('Component updated');
-  };
 
 module.exports = componentsControllers;
