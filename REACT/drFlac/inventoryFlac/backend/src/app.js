@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const multer = require("multer");
-const sharp = require("sharp");
 const app = express();
+
 
 //settings
 app.set("port",process.env.PORT || 3000); /*De esta manera seteamos una variable 'port' con su valor '3000'*/
@@ -19,7 +18,6 @@ app.use("/api/components", require("./routes/components")); /* Cuando reciba una
 //app.use('/api/notes', require('./routes/notes'))
 //app.use('/api/clientes', require('./routes/clientes'))
 //app.use('/api/productos', require('./routes/productos'))
-
 
 
 module.exports = app;
