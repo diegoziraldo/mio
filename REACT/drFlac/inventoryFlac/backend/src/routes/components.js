@@ -3,7 +3,7 @@ const router = Router();
 
 
 
-const { getComponents, createComponents,updateComponents, deleteComponents} = require('../controllers/components.controllers')
+const { getComponents, createComponents,updateComponents, deleteComponents, uploadComponents} = require('../controllers/components.controllers')
 
 router.route('/')
     .get(getComponents)
@@ -15,6 +15,10 @@ router.route('/')
 router.route('/:id')
     .put(updateComponents)
     .delete(deleteComponents)
+
+router.route('./upload')
+    .post(uploadComponents)
+
 
 
 
