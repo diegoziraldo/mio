@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
-import img from "../../img/transistor.png";
+
+
 
 const StockTable = ({ searchResults, showActions }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -68,7 +69,8 @@ const StockTable = ({ searchResults, showActions }) => {
       {isPopupOpen && selectedItem && (
         <div className="col-md-4">
           <div className="card tarjetaComponentes">
-            <img src={img} className="card-img-top" alt="Componente" />
+            {/* <img src={`/stock/${selectedItem.name}.png`} className="card-img-top" alt="Componente" /> */}
+            <img src={`../../../public/${selectedItem.name}.png`} className="card-img-top" alt="Componente" />
             <div className="card-body">
               <h5>{selectedItem.name}</h5>
               <p>{selectedItem.description}</p>

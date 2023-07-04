@@ -10,7 +10,7 @@ app.set("port",process.env.PORT || 3000); /*De esta manera seteamos una variable
 //middlewares
 app.use(cors());
 app.use(express.json());
-
+app.use("/stock", express.static('./upload'));
 
 //routes
 //app.use('/')
