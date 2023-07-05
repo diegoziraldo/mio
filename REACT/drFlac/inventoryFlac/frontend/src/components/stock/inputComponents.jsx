@@ -1,65 +1,62 @@
-import { useState } from "react"; 
-import PropTypes from "prop-types"; 
-import axios from "axios"; 
- 
-const ComponentInput = ({ component }) => { 
-  ComponentInput.propTypes = { 
-    component: PropTypes.object.isRequired, 
-  }; 
- 
-  const [name, setName] = useState(component?.name || ""); 
-  const [description, setDescription] = useState(component?.description || ""); 
-  const [category, setCategory] = useState(component?.category || ""); 
-  const [brand, setBrand] = useState(component?.brand || ""); 
-  const [price, setPrice] = useState(component?.price || ""); 
-  const [image, setImage] = useState(component?.image || ""); 
-  const [code, setCode] = useState(component?.code || ""); 
-  const [stock, setStock] = useState(component?.stock || ""); 
-  const [infoProveedor, setProviderinfo] = useState( 
-    component?.infoProveedor || "" 
-  ); 
- 
-  const handleSubmit = async (e) => { 
-    e.preventDefault(); 
-    const newComponent = { 
-      name, 
-      description, 
-      category, 
-      brand, 
-      price, 
-      image, 
-      code, 
-      stock, 
-      infoProveedor, 
-    }; 
- 
-    try { 
-      const res = await axios.post( 
-        "http://localhost:3000/api/components",
-        newComponent 
-      ); 
-      console.log(res.data); // Imprime la respuesta del servidor si es necesario 
- 
-      // Realiza alguna acción adicional después de guardar los datos, como redireccionar o mostrar una notificación de éxito 
-    } catch (error) { 
-      console.error(error); 
-      // Maneja el error de la solicitud, muestra una notificación de error o realiza alguna acción adicional 
-    } 
-  }; 
- 
-  const handleImageChange = (e) => { 
-    const file = e.target.files[0]; 
-    const reader = new FileReader(); 
- 
-    reader.onloadend = () => { 
-      setImage(reader.result); 
-    }; 
- 
-    if (file) { 
-      reader.readAsDataURL(file); 
-    } 
-  }; 
- 
+import { useState } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+
+const ComponentInput = ({ component }) => {
+  ComponentInput.propTypes = {
+    component: PropTypes.object.isRequired,
+  };
+
+  const [name, setName] = useState(component?.name || "");
+  const [description, setDescription] = useState(component?.description || "");
+  const [category, setCategory] = useState(component?.category || "");
+  const [brand, setBrand] = useState(component?.brand || "");
+  const [price, setPrice] = useState(component?.price || "");
+  const [code, setCode] = useState(component?.code || "");
+  const [stock, setStock] = useState(component?.stock || "");
+  const [infoProveedor, setProviderinfo] = useState(component?.infoProveedor || "");
+  const [imageFile, setImageFile] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newComponent = {
+      name,
+      description,
+      category,
+      brand,
+      price,
+      code,
+      stock,
+      infoProveedor,
+    };
+
+    try {
+      const formData = new FormData();
+      formData.append("component", JSON.stringify(newComponent));
+      formData.append("image", imageFile);
+
+      const res = await axios.post("http://localhost:3000/api/components", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log(res.data); // Imprime la respuesta del servidor si es necesario
+
+      // Realiza alguna acción adicional después de guardar los datos, como redireccionar o mostrar una notificación de éxito
+    } catch (error) {
+      console.error(error);
+      // Maneja el error de la solicitud, muestra una notificación de error o realiza alguna acción adicional
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+  };
+
+
   return ( 
     <div className="container"> 
       <form onSubmit={handleSubmit} className="container"> 
@@ -128,16 +125,16 @@ const ComponentInput = ({ component }) => {
               onChange={(e) => setPrice(e.target.value)} 
             /> 
           </div> 
-          <div className="col-md-6 mb-3"> 
-            <label htmlFor="image">Imagen</label> 
-            <input 
-              type="file" 
-              id="image" 
-              className="form-control" 
-              accept="image/*" 
-              onChange={handleImageChange} 
-            /> 
-          </div> 
+        <div className="col-md-6 mb-3">
+          <label htmlFor="image">Imagen</label>
+          <input
+            type="file"
+            id="image"
+            className="form-control"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+        </div>
         </div> 
         <div className="form-row"> 
           <div className="col-md-6 mb-3"> 

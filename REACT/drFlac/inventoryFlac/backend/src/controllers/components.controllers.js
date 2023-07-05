@@ -1,6 +1,7 @@
 const componentsControllers = {};
 const Component = require("../models/Components");
 const fs = require('fs');
+const Jimp = require('jimp');
 const path = require('path'); // Importa el módulo 'path'
 
 
@@ -37,8 +38,8 @@ componentsControllers.createComponents = async (req, res) => {
   });
 
   // Guardar la imagen en el servidor
-  const directorioImagenes =  path.join(__dirname, '../upload'); // Reemplaza con la ruta absoluta al directorio de imágenes
-  const nombreImagen = `${name}.jpg`; // Genera un nombre único para la imagen
+  const directorioImagenes = path.join(__dirname, '../upload'); // Reemplaza con la ruta absoluta al directorio de imágenes
+  const nombreImagen = `${name}.png`; // Genera un nombre único para la imagen
 
   const imagenBase64 = image; // Suponiendo que la imagen se envía en el campo 'image' del cuerpo de la solicitud
 
@@ -49,27 +50,51 @@ componentsControllers.createComponents = async (req, res) => {
   const rutaImagen = path.join(directorioImagenes, nombreImagen);
 
   // Guarda la imagen en el servidor
-  fs.writeFile(rutaImagen, imagenBuffer, 'binary', (error) => {
-    if (error) {
-      console.error('Error al guardar la imagen:', error);
-      // Manejar el error apropiadamente, enviar una respuesta de error al cliente, etc.
-      return;
-    }
-
-    // Actualiza el campo 'image' de newComponent con la ruta de la imagen guardada
-    newComponent.image = rutaImagen;
-
-    // Guarda el componente en la base de datos
-    newComponent.save()
-      .then(() => {
-        console.log('Componente creado correctamente');
-        res.json('Component Created');
-      })
-      .catch((error) => {
-        console.error('Error al crear el componente:', error);
+  new Promise((resolve, reject) => {
+    fs.writeFile(rutaImagen, imagenBuffer, 'binary', async (error) => {
+      if (error) {
+        console.error('Error al guardar la imagen:', error);
         // Manejar el error apropiadamente, enviar una respuesta de error al cliente, etc.
-      });
-  });
+        reject(error);
+      } else {
+        // Actualiza el campo 'image' de newComponent con la ruta de la imagen guardada
+        newComponent.image = rutaImagen;
+
+        // Convierte y guarda la imagen en formato PNG utilizando Jimp
+        const pngImagePath = path.join(directorioImagenes, `${name}.png`);
+
+        try {
+          const jimpImage = await Jimp.read(imagenBuffer);
+          await jimpImage.writeAsync(pngImagePath);
+
+          // Actualiza el campo 'image' de newComponent con la ruta de la imagen PNG
+          newComponent.image = pngImagePath;
+
+          resolve();
+        } catch (error) {
+          console.error('Error al convertir y guardar la imagen en formato PNG:', error);
+          // Manejar el error apropiadamente, enviar una respuesta de error al cliente, etc.
+          reject(error);
+        }
+      }
+    });
+  })
+    .then(() => {
+      // Guarda el componente en la base de datos
+      newComponent.save()
+        .then(() => {
+          console.log('Componente creado correctamente');
+          res.json('Component Created');
+        })
+        .catch((error) => {
+          console.error('Error al crear el componente:', error);
+          // Manejar el error apropiadamente, enviar una respuesta de error al cliente, etc.
+        });
+    })
+    .catch((error) => {
+      console.error('Error al guardar la imagen o convertir a PNG:', error);
+      // Manejar el error apropiadamente, enviar una respuesta de error al cliente, etc.
+    });
 };
 componentsControllers.deleteComponents = async (req, res) => {
   await Component.findByIdAndDelete(req.params.id);

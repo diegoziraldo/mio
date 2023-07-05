@@ -12,8 +12,8 @@ app.set("port",process.env.PORT || 3000); /*De esta manera seteamos una variable
 app.use(cors());
 app.use(express.json());
 app.use("/stock", express.static('./upload'));
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 //routes
 //app.use('/')
