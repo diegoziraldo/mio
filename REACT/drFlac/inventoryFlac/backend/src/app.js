@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require('body-parser');
 const app = express();
 
 
@@ -11,6 +12,8 @@ app.set("port",process.env.PORT || 3000); /*De esta manera seteamos una variable
 app.use(cors());
 app.use(express.json());
 app.use("/stock", express.static('./upload'));
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 //routes
 //app.use('/')
